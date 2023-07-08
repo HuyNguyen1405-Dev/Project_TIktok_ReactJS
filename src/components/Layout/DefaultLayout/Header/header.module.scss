@@ -80,7 +80,10 @@
 	}
 }
 .actions {
-	background-color: red;
-	height: 60px;
-	width: 150px;
+	display: flex;
+    align-items: center;
+}
+
+.custom-get-app{
+	color:rgba(22, 24, 35, .75);
 }

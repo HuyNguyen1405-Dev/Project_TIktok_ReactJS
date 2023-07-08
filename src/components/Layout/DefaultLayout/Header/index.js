@@ -1,13 +1,20 @@
+//Import with library
 import { useState, useEffect } from 'react'
 import 'tippy.js/dist/tippy.css';
 import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faSignIn } from '@fortawesome/free-solid-svg-icons'
 import styles from './header.module.scss'
 import classNames from 'classnames/bind'
+//================================================
+
+//Import from components
 import images from '~/assets/images'
 import { Wrapper as PopperWrapper } from '~/components/Popper'
 import AccountItem from '~/components/AccountItem'
+import Button from '~/components/Button'
+//================================================
+
 const cx = classNames.bind(styles)
 
 const Header = () => {
@@ -54,7 +61,8 @@ const Header = () => {
                     </div>
                 </Tippy>
                 <div className={cx('actions')}>
-
+                    <Button text>Upload</Button>
+                    <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Log in</Button>
                 </div>
             </div>
         </header >
