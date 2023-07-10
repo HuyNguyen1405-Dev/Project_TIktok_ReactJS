@@ -10,6 +10,7 @@
 .content {
 	height: 100%;
 	width: var(--default-layout-width);
+	padding:  0 var(--default-layout-horizontal-spacer);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -87,3 +88,11 @@
 .custom-get-app{
 	color:rgba(22, 24, 35, .75);
 }
+
+.more-btn {
+	font-size: 2rem;
+	margin-left: 28px;
+	padding: 6px;
+	background-color: transparent;
+}
+
