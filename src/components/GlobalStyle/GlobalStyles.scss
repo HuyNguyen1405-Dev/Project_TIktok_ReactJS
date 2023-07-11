@@ -13,7 +13,7 @@
 	--default-layout-horizontal-spacer: 24px;
 }
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
 }
@@ -25,15 +25,38 @@ body {
 	font-family: 'Montserrat', sans-serif;
 	font-size: 1.5rem;
 	line-height: 1.5;
-    text-rendering: optimizeSpeed;
+	text-rendering: optimizeSpeed;
 }
 
-button, input, [tabindex] {
+button,
+input,
+[tabindex] {
 	outline: none;
 	border: none;
 }
 
 a[href] {
-	color:var(--text-color);
+	color: var(--text-color);
 	text-decoration: none;
+}
+
+body {
+	.tippy-box {
+		background-color: rgba(84, 84, 84, 0.93);
+		font-size: 1.6rem;
+		font-weight: 600;
+		line-height: 2.2rem;
+		border-radius: 8px;
+	}
+
+	.tippy-arrow {
+		color: rgba(84, 84, 84, 0.93);;
+	}
+
+	.tippy-content {
+		padding: 8px 9px;
+	}
+	.tippy-box[data-placement^=bottom]>.tippy-arrow::before{
+		top: -8px;
+	}
 }
