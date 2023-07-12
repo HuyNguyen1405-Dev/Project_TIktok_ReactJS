@@ -59,6 +59,8 @@
 		border-color: rgba(22, 24, 35, 0.2);
 	}
 }
+
+
 .clear,
 .loading {
 	position: absolute;
@@ -107,6 +109,20 @@
 	padding: 4px 12px;
 	cursor: pointer;
 }
+.icon-upload{
+	display: flex;
+	align-items: center;
+}
+
+.icon-message {
+	display: flex;
+	align-items: center;
+}
+
+.icon-inbox {
+	display: flex;
+	align-items: center;
+}
 
 .avatar-user {
 	width: 32px;
@@ -115,5 +131,7 @@
 	border-radius: 50%;
 	margin-left: 12px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
 }
 
