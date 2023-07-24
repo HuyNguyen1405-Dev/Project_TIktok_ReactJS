@@ -1,18 +1,22 @@
-import HomePage from '~/pages/Home';
-import FollowingPage from '~/pages/Following';
-import ProfilePage from '~/pages/Profile';
-import UploadPage from '~/pages/Upload';
-import HeaderOnly from '~/components/Layout/HeaderOnly';
+import HeaderOnly from '~/layouts/HeaderOnly'
+import config from '~/config';
 
+// Pages
+import Home from '~/pages/Home';
+import Following from '~/pages/Following';
+import Profile from '~/pages/Profile';
+import Upload from '~/pages/Upload';
+import Search from '~/pages/Search';
+
+// Public routes
 const publicRoutes = [
-    { path: '/', component: HomePage },
-    { path: '/following', component: FollowingPage },
-    { path: '/@:nickname', component: ProfilePage },
-    { path: '/upload', component: UploadPage, layout: HeaderOnly }
-]
+    { path: config.routes.home, component: Home },
+    { path: config.routes.following, component: Following },
+    { path: config.routes.profile, component: Profile },
+    { path: config.routes.upload, component: Upload, layout: HeaderOnly },
+    { path: config.routes.search, component: Search, layout: null },
+];
 
-const privateRoutes = [
+const privateRoutes = [];
 
-]
-
-export { publicRoutes, privateRoutes }
+export { publicRoutes, privateRoutes };

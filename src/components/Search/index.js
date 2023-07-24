@@ -10,7 +10,7 @@ import { SearchIcon } from '~/components/Icons';
 import styles from './search.module.scss';
 import classNames from 'classnames/bind';
 import { useDebounce } from '~/hooks';
-import * as searchService from '~/apiService/SearchService';
+import * as searchService from '~/services/SearchService';
 
 const cx = classNames.bind(styles);
 
@@ -49,9 +49,18 @@ function Search() {
         setSearchResult([]);
         inputRef.current.focus();
     };
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if(!searchValue.startsWith(' ')){
+            setSearchValue(searchValue);
+        }
+    }
+
     return (
         <HeadlessTippy
             interactive
+            appendTo={() => document.body}
             visible={showResult && searchResult.length > 0}
             render={(attrs) => (
                 <div className={cx('search-results')} tabIndex="-1" {...attrs}>
@@ -69,9 +78,9 @@ function Search() {
                 <input
                     ref={inputRef}
                     value={searchValue}
-                    placeholder="Search accounts or video"
+                    placeholder="Search accounts or videos"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleChange}
                     onFocus={() => setShowResult(true)}
                 />
                 {!!searchValue && !loading && (
@@ -85,7 +94,7 @@ function Search() {
                         className={cx('loading')}
                     />
                 )}
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     <SearchIcon />
                 </button>
             </div>

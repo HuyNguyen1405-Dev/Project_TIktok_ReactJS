@@ -19,16 +19,14 @@ import classNames from 'classnames/bind';
 //================================================
 
 //Import from components
+import config from '~/config';
 import images from '~/assets/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
-import {
-	UploadIcon,
-	MessageIcon,
-	InboxIcon,
-} from '~/components/Icons';
-import Image from '../../../Image/index';
-import Search from '../../../Search/index';
+import { UploadIcon, MessageIcon, InboxIcon } from '~/components/Icons';
+import Image from '~/components/Image/index';
+import Search from '~/components/Search';
+import { Link } from 'react-router-dom';
 //================================================
 
 const cx = classNames.bind(styles);
@@ -67,7 +65,7 @@ const MENU_CURRENT = [
 	{
 		icon: <FontAwesomeIcon icon={faUser} />,
 		title: 'Profile',
-		to: '/profile',
+		to: '/@hoaa',
 	},
 	{
 		icon: <FontAwesomeIcon icon={faBookmark} />,
@@ -107,9 +105,10 @@ const Header = () => {
 	return (
 		<header className={cx('wrapper')}>
 			<div className={cx('content')}>
-				<div className={cx('logo')}>
+				<Link to={config.routes.home} className={cx('logo-link')}>
 					<img src={images.logo} alt="TikTok" />
-				</div>
+				</Link>
+			
 				<Search />
 				<div className={cx('actions')}>
 					{currentUser ? (
@@ -149,7 +148,7 @@ const Header = () => {
 							<Image
 								src="https://p16-sign-va.tiktokcdn.com/tos-maliva-avt-0068/42a81079b5885e152707b170d63ba2df~c5_100x100.jpeg?x-expires=1689080400&x-signature=tryfBQB%2BXFuzJTKOpN%2FfY6DjPFU%3D"
 								alt="avatar"
-								// fallback="https://imgt.taimienphi.vn/cf/Images/np/2021/11/26/hinh-anh-avatar-dep.jpg"
+								fallback="https://imgt.taimienphi.vn/cf/Images/np/2021/11/26/hinh-anh-avatar-dep.jpg"
 								className={cx('avatar-user')}
 							/>
 						) : (

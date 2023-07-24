@@ -1,9 +1,9 @@
 import React from 'react'
 
-const index = () => {
+const Home = () => {
   return (
-    <div>Home</div>
+    <div style={{height: 2000}}>Home</div>
   )
 }
 
-export default index
+export default Home

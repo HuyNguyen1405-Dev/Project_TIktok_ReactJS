@@ -1,9 +1,9 @@
 import React from 'react'
 
-const index = () => {
+const Upload = () => {
   return (
     <div>Upload Pages</div>
   )
 }
 
-export default index
+export default Upload
