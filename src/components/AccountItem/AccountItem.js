@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import styles from './AccountItem.module.scss';
 import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
@@ -6,6 +7,7 @@ import Image from '~/components/Image';
 import { Link } from 'react-router-dom';
 
 const cx = classNames.bind(styles);
+
 function AccountItem({ data }) {
 	return (
 		<Link to={`/@${data.nickname}`} className={cx('wrapper')}>
@@ -26,4 +28,7 @@ function AccountItem({ data }) {
 	);
 }
 
+AccountItem.propTypes = {
+	data:PropTypes.object,
+}
 export default AccountItem;
