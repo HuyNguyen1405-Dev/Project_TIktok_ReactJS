@@ -1,4 +1,3 @@
-import { Children } from 'react';
 import Header from './Header'
 import SideBar from './SideBar'
 import styles from './DefaultLayout.module.scss';

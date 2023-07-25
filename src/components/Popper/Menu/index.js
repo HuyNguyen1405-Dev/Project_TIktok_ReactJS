@@ -11,8 +11,9 @@ import Header from './Header';
 import { useState } from 'react';
 //Use module scss style
 const cx = classNames.bind(styles);
-const defaultFn = () => {};
-function Menu({ children, items = [], onChange = defaultFn }) {
+const defaultFn = () => { };
+
+function Menu({ children, items = [], hideOnClick= false, onChange = defaultFn, ...passProps }) {
 
     const [history, setHistory] = useState([{ data: items }])
     const current = history[history.length - 1]
@@ -25,7 +26,7 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                 if (isParent) {
                     setHistory(prev => [...prev, item.children]);
                 }
-                else{
+                else {
                     onChange(item)
                 }
             }} />
@@ -34,9 +35,11 @@ function Menu({ children, items = [], onChange = defaultFn }) {
     return (
         <div>
             <Tippy
+                {...passProps}
                 delay={[0, 700]}
                 placement='bottom-end'
                 offset={[12, 8]}
+                hideOnClick={hideOnClick}
                 interactive
                 render={attrs => (
                     <div className={cx('content')} tabIndex="-1" {...attrs}>
@@ -44,11 +47,11 @@ function Menu({ children, items = [], onChange = defaultFn }) {
                             {history.length > 1 && <Header title="Language" onBack={() => {
                                 setHistory((prev) => prev.slice(0, prev.length - 1))
                             }} />}
-                            {render_items()}
+                            <div className={cx('scroll-menu')}>{render_items()}</div>
                         </PopperWrapper>
                     </div>
                 )}
-                onHide={() => setHistory(prev => prev.slice(0,1))}
+                onHide={() => setHistory(prev => prev.slice(0, 1))}
             >
                 {children}
             </Tippy>
